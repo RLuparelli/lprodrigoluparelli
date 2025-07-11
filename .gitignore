@@ -5,6 +5,7 @@ yarn-debug.log*
 yarn-error.log*
 pnpm-debug.log*
 lerna-debug.log*
+.claude/
 
 # Next.js
 .next/
@@ -170,7 +171,6 @@ coverage/
 .jest/
 
 # Package managers
-package-lock.json
 yarn.lock
 pnpm-lock.yaml
 
