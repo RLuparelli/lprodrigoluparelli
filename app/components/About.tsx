@@ -12,7 +12,7 @@ const About = () => {
     if (isInView) {
       const animateCounters = () => {
         const targets = { experience: 5, projects: 30, technologies: 20 }
-        const duration = 3000
+        const duration = 2000
         const steps = 30
         
         Object.keys(targets).forEach((key) => {
