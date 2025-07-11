@@ -40,7 +40,10 @@ jobs:
         static_site_generator: next
         
     - name: Build with Next.js
-      run: npm run build
+      run: NODE_ENV=production npm run build
+      
+    - name: List build output
+      run: ls -la out/ && ls -la out/img/
       
     - name: Upload artifact
       uses: actions/upload-pages-artifact@v3
