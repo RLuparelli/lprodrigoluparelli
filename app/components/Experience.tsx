@@ -39,13 +39,13 @@ const Experience = () => {
   ]
 
   const companies = [
-    { name: 'Petrobras', logo: '/img/petrobras.png' },
-    { name: 'INCA', logo: '/img/inca.png' },
-    { name: 'Global', logo: '/img/global.png' },
-    { name: 'Claro', logo: '/img/claro.png' },
-    { name: 'Sonda', logo: '/img/sonda.png' },
-    { name: 'LBV', logo: '/img/lbv.png' },
-    { name: 'SAS', logo: '/img/sas.png' },
+    { name: 'Petrobras', logo: 'https://github.com/RLuparelli/lprodrigoluparelli/blob/main/img/petrobras.png?raw=true' },
+    { name: 'INCA', logo: 'https://github.com/RLuparelli/lprodrigoluparelli/blob/main/img/inca.png?raw=true' },
+    { name: 'Global', logo: 'https://github.com/RLuparelli/lprodrigoluparelli/blob/main/img/global.png?raw=true' },
+    { name: 'Claro', logo: 'https://github.com/RLuparelli/lprodrigoluparelli/blob/main/img/claro.png?raw=true' },
+    { name: 'Sonda', logo: 'https://github.com/RLuparelli/lprodrigoluparelli/blob/main/img/sonda.png?raw=true' },
+    { name: 'LBV', logo: 'https://github.com/RLuparelli/lprodrigoluparelli/blob/main/img/lbv.png?raw=true' },
+    { name: 'SAS', logo: 'https://github.com/RLuparelli/lprodrigoluparelli/blob/main/img/sas.png?raw=true' },
   ]
 
   const timelineVariants = {
