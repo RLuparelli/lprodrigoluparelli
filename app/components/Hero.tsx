@@ -21,7 +21,7 @@ const Hero = () => {
     "const developer = {",
     "  name: 'Rodrigo Luparelli',",
     "  skills: ['React', 'Next.js'],", 
-    "  experience: 5+ years",
+    "  experience: '5+ years'",
     "};"
   ]
 
@@ -136,7 +136,7 @@ const Hero = () => {
                         {'  '}
                         <span className="text-blue-400">name</span>
                         <span className="text-white">: </span>
-                        <span className="text-yellow-400">'Rodrigo Luparelli'</span>
+                        <span className="text-yellow-400">&lsquo;Rodrigo Luparelli&rsquo;</span>
                         <span className="text-white">,</span>
                       </span>
                     )}
@@ -145,9 +145,9 @@ const Hero = () => {
                         {'  '}
                         <span className="text-blue-400">skills</span>
                         <span className="text-white">: [</span>
-                        <span className="text-yellow-400">'React'</span>
+                        <span className="text-yellow-400">&lsquo;React&rsquo;</span>
                         <span className="text-white">, </span>
-                        <span className="text-yellow-400">'Next.js'</span>
+                        <span className="text-yellow-400">&lsquo;Next.js&rsquo;</span>
                         <span className="text-white">],</span>
                       </span>
                     )}

@@ -10,7 +10,7 @@ const Experience = () => {
   const experiences = [
     {
       title: 'Full Stack Developer',
-      company: 'SONDA - BID - Petrobras',
+      company: 'SONDA - BID  - Petrobras',
       period: 'Fev 2020 - Ago 2021',
       description: 'Sistema SEPSI de privacidade e segurança de dados. Backend Spring Boot com frontend Thymeleaf. Implementação de compliance e proteção de dados.',
       stack: 'Java, Spring Boot, PostgreSQL, Docker'
