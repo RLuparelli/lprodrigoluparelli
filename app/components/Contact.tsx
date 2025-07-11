@@ -11,8 +11,8 @@ const Contact = () => {
     {
       icon: Mail,
       label: 'Email',
-      value: 'luparelli@exemplo.com',
-      href: 'mailto:luparelli@exemplo.com',
+      value: 'luparelli@hotmail.com.br',
+      href: 'mailto:luparelli@hotmail.com.br',
       color: 'hover:text-red-400'
     },
     {
@@ -60,7 +60,7 @@ const Contact = () => {
   }
 
   return (
-    <section id="contact" className="py-20 bg-gray-900">
+    <section id="contact" className="bg-gray-900 py-20">
       <div className="container-custom">
         <motion.div
           ref={ref}
@@ -70,12 +70,12 @@ const Contact = () => {
         >
           <h2 className="section-title">Vamos Conversar?</h2>
           
-          <div className="max-w-4xl mx-auto text-center">
+          <div className="mx-auto max-w-4xl text-center">
             <motion.p
               initial={{ opacity: 0, y: 20 }}
               animate={inView ? { opacity: 1, y: 0 } : {}}
               transition={{ delay: 0.2, duration: 0.6 }}
-              className="text-lg text-gray-300 mb-12 leading-relaxed"
+              className="mb-12 text-gray-300 text-lg leading-relaxed"
             >
               Interessado em colaborar ou tem algum projeto em mente? 
               <br />
@@ -86,7 +86,7 @@ const Contact = () => {
               variants={containerVariants}
               initial="hidden"
               animate={inView ? "visible" : "hidden"}
-              className="grid md:grid-cols-2 lg:grid-cols-4 gap-6"
+              className="gap-6 grid md:grid-cols-2 lg:grid-cols-4"
             >
               {contactLinks.map((contact) => {
                 const IconComponent = contact.icon
@@ -112,11 +112,11 @@ const Contact = () => {
                     }}
                     className={`bg-black/80 backdrop-blur-sm border border-gray-700 rounded-xl p-6 flex flex-col items-center space-y-4 group ${contact.color} relative overflow-hidden`}
                   >
-                    <div className="w-14 h-14 bg-gray-800/60 rounded-full flex items-center justify-center group-hover:bg-gray-600/60 transition-all duration-300 group-hover:scale-110">
+                    <div className="flex justify-center items-center bg-gray-800/60 group-hover:bg-gray-600/60 rounded-full w-14 h-14 group-hover:scale-110 transition-all duration-300">
                       <IconComponent size={26} className="text-gray-400 group-hover:text-white transition-all duration-300" />
                     </div>
                     <div className="text-center">
-                      <h3 className="text-white font-semibold mb-1">
+                      <h3 className="mb-1 font-semibold text-white">
                         {contact.label}
                       </h3>
                       <p className="text-gray-400 text-sm">
@@ -136,10 +136,10 @@ const Contact = () => {
               className="mt-12"
             >
               <motion.a
-                href="mailto:luparelli@exemplo.com"
+                href="mailto:luparelli@hotmail.com.br"
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
-                className="btn btn-primary inline-flex items-center gap-2"
+                className="inline-flex items-center gap-2 btn btn-primary"
               >
                 <Mail size={20} />
                 Enviar Email
