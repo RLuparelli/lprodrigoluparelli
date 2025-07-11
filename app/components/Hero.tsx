@@ -156,7 +156,7 @@ const Hero = () => {
                         {'  '}
                         <span className="text-blue-400">experience</span>
                         <span className="text-white">: </span>
-                        <span className="text-purple-400">4</span>
+                        <span className="text-purple-400">5</span>
                         <span className="text-white">+ years</span>
                       </span>
                     )}
