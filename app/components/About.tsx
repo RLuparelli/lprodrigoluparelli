@@ -1,15 +1,15 @@
 'use client'
 
 import { motion } from 'framer-motion'
-import { useInView } from 'react-intersection-observer'
 import { useEffect, useState } from 'react'
+import { useScrollAnimation, scrollVariants, staggerContainerVariants, staggerItemVariants, scaleVariants } from '../hooks/useScrollAnimation'
 
 const About = () => {
-  const [ref, inView] = useInView({ threshold: 0.1, triggerOnce: true })
+  const { ref, controls, isInView } = useScrollAnimation({ threshold: 0.1 })
   const [counters, setCounters] = useState({ experience: 0, projects: 0, technologies: 0 })
 
   useEffect(() => {
-    if (inView) {
+    if (isInView) {
       const animateCounters = () => {
         const targets = { experience: 5, projects: 30, technologies: 20 }
         const duration = 3000
@@ -34,7 +34,7 @@ const About = () => {
       
       animateCounters()
     }
-  }, [inView])
+  }, [isInView])
 
   const stats = [
     { number: counters.experience, label: 'Anos de Experiência', suffix: '+' },
@@ -47,43 +47,52 @@ const About = () => {
       <div className="container-custom">
         <motion.div
           ref={ref}
-          initial={{ opacity: 0, y: 50 }}
-          animate={inView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.8 }}
+          variants={scrollVariants}
+          initial="hidden"
+          animate={controls}
         >
-          <h2 className="section-title">Sobre Mim</h2>
+          <motion.h2 
+            className="section-title"
+            variants={scrollVariants}
+          >
+            Sobre Mim
+          </motion.h2>
           
           <div className="max-w-4xl mx-auto">
             <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              animate={inView ? { opacity: 1, y: 0 } : {}}
-              transition={{ delay: 0.2, duration: 0.8 }}
+              variants={staggerContainerVariants}
+              initial="hidden"
+              animate={controls}
               className="text-center space-y-6 mb-16"
             >
-              <p className="text-lg text-gray-300 leading-relaxed">
+              <motion.p 
+                className="text-lg text-gray-300 leading-relaxed"
+                variants={staggerItemVariants}
+              >
                 Desenvolvedor Frontend com mais de 5 anos de experiência, especializado em React e Next.js.
                 Tenho expertise em criar aplicações escaláveis e performáticas para diversos segmentos,
                 incluindo e-commerce, EdTech e sistemas corporativos críticos.
-              </p>
-              <p className="text-lg text-gray-300 leading-relaxed">
+              </motion.p>
+              <motion.p 
+                className="text-lg text-gray-300 leading-relaxed"
+                variants={staggerItemVariants}
+              >
                 Trabalhei em projetos para grandes empresas como Petrobras, INCA e Caixa,
                 desenvolvendo soluções robustas que atendem milhares de usuários diariamente.
-              </p>
+              </motion.p>
             </motion.div>
 
             {/* Stats */}
             <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              animate={inView ? { opacity: 1, y: 0 } : {}}
-              transition={{ delay: 0.4, duration: 0.8 }}
+              variants={staggerContainerVariants}
+              initial="hidden"
+              animate={controls}
               className="grid md:grid-cols-3 gap-8"
             >
               {stats.map((stat, index) => (
                 <motion.div
                   key={stat.label}
-                  initial={{ opacity: 0, scale: 0.8 }}
-                  animate={inView ? { opacity: 1, scale: 1 } : {}}
-                  transition={{ delay: 0.6 + index * 0.2, duration: 0.6 }}
+                  variants={scaleVariants}
                   className="text-center bg-black border border-gray-700 rounded-lg p-6 card-hover"
                 >
                   <div className="text-4xl md:text-5xl font-bold text-gradient mb-2">

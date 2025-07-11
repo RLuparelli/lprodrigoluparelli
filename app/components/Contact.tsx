@@ -1,11 +1,11 @@
 'use client'
 
 import { motion } from 'framer-motion'
-import { useInView } from 'react-intersection-observer'
 import { Mail, Linkedin, Github, MessageCircle } from 'lucide-react'
+import { useScrollAnimation, scrollVariants, staggerContainerVariants, staggerItemVariants } from '../hooks/useScrollAnimation'
 
 const Contact = () => {
-  const [ref, inView] = useInView({ threshold: 0.1, triggerOnce: true })
+  const { ref, controls, isInView } = useScrollAnimation({ threshold: 0.1 })
 
   const contactLinks = [
     {
@@ -49,12 +49,20 @@ const Contact = () => {
   }
 
   const itemVariants = {
-    hidden: { opacity: 0, y: 30 },
+    hidden: { 
+      opacity: 0, 
+      y: 30,
+      transition: {
+        duration: 0.6,
+        ease: 'easeInOut'
+      }
+    },
     visible: {
       opacity: 1,
       y: 0,
       transition: {
-        duration: 0.6
+        duration: 0.6,
+        ease: 'easeInOut'
       }
     }
   }
@@ -64,17 +72,22 @@ const Contact = () => {
       <div className="container-custom">
         <motion.div
           ref={ref}
-          initial={{ opacity: 0, y: 50 }}
-          animate={inView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.8 }}
+          variants={scrollVariants}
+          initial="hidden"
+          animate={controls}
         >
-          <h2 className="section-title">Vamos Conversar?</h2>
+          <motion.h2 
+            className="section-title"
+            variants={scrollVariants}
+          >
+            Vamos Conversar?
+          </motion.h2>
           
           <div className="mx-auto max-w-4xl text-center">
             <motion.p
-              initial={{ opacity: 0, y: 20 }}
-              animate={inView ? { opacity: 1, y: 0 } : {}}
-              transition={{ delay: 0.2, duration: 0.6 }}
+              variants={staggerItemVariants}
+              initial="hidden"
+              animate={controls}
               className="mb-12 text-gray-300 text-lg leading-relaxed"
             >
               Interessado em colaborar ou tem algum projeto em mente? 
@@ -83,9 +96,9 @@ const Contact = () => {
             </motion.p>
 
             <motion.div
-              variants={containerVariants}
+              variants={staggerContainerVariants}
               initial="hidden"
-              animate={inView ? "visible" : "hidden"}
+              animate={controls}
               className="gap-6 grid md:grid-cols-2 lg:grid-cols-4"
             >
               {contactLinks.map((contact) => {
@@ -130,9 +143,9 @@ const Contact = () => {
 
             {/* CTA */}
             <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              animate={inView ? { opacity: 1, y: 0 } : {}}
-              transition={{ delay: 0.8, duration: 0.6 }}
+              variants={staggerItemVariants}
+              initial="hidden"
+              animate={controls}
               className="mt-12"
             >
               <motion.a

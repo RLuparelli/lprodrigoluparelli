@@ -1,10 +1,10 @@
 'use client'
 
 import { motion } from 'framer-motion'
-import { useInView } from 'react-intersection-observer'
+import { useScrollAnimation, scrollVariants, staggerContainerVariants } from '../hooks/useScrollAnimation'
 
 const Skills = () => {
-  const [ref, inView] = useInView({ threshold: 0.1, triggerOnce: true })
+  const { ref, controls, isInView } = useScrollAnimation({ threshold: 0.1 })
 
   const skillCategories = [
     {
@@ -36,24 +36,40 @@ const Skills = () => {
   }
 
   const categoryVariants = {
-    hidden: { opacity: 0, y: 20 },
+    hidden: { 
+      opacity: 0, 
+      y: 20,
+      transition: {
+        duration: 0.5,
+        ease: 'easeInOut'
+      }
+    },
     visible: {
       opacity: 1,
       y: 0,
       transition: {
         duration: 0.5,
+        ease: 'easeInOut',
         staggerChildren: 0.05
       }
     }
   }
 
   const skillVariants = {
-    hidden: { opacity: 0, scale: 0.9 },
+    hidden: { 
+      opacity: 0, 
+      scale: 0.9,
+      transition: {
+        duration: 0.3,
+        ease: 'easeInOut'
+      }
+    },
     visible: {
       opacity: 1,
       scale: 1,
       transition: {
-        duration: 0.3
+        duration: 0.3,
+        ease: 'easeInOut'
       }
     }
   }
@@ -63,16 +79,21 @@ const Skills = () => {
       <div className="container-custom">
         <motion.div
           ref={ref}
-          initial={{ opacity: 0, y: 50 }}
-          animate={inView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.8 }}
+          variants={scrollVariants}
+          initial="hidden"
+          animate={controls}
         >
-          <h2 className="section-title">Tech Stack</h2>
+          <motion.h2 
+            className="section-title"
+            variants={scrollVariants}
+          >
+            Tech Stack
+          </motion.h2>
           
           <motion.div
             variants={containerVariants}
             initial="hidden"
-            animate={inView ? "visible" : "hidden"}
+            animate={controls}
             className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-5xl mx-auto"
           >
             {skillCategories.map((category, categoryIndex) => (
@@ -105,9 +126,9 @@ const Skills = () => {
 
           {/* Simple Stats */}
           <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={inView ? { opacity: 1, y: 0 } : {}}
-            transition={{ delay: 0.6, duration: 0.6 }}
+            variants={staggerContainerVariants}
+            initial="hidden"
+            animate={controls}
             className="mt-16 text-center"
           >
             <div className="grid grid-cols-2 md:grid-cols-4 gap-8 max-w-2xl mx-auto">
