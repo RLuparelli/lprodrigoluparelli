@@ -7,7 +7,8 @@ const nextConfig = {
   images: {
     unoptimized: true,
   },
-  assetPrefix: process.env.NODE_ENV === 'production' ? undefined : undefined,
+  // Ensure proper asset handling for GitHub Pages with custom domain
+  assetPrefix: '',
   basePath: '',
 }
 
