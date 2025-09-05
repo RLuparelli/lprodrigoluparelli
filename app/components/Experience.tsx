@@ -9,42 +9,54 @@ const Experience = () => {
   
   const experiences = [
     {
-      title: 'Full Stack Developer',
-      company: 'SONDA - BID  - Petrobras',
-      period: 'Fev 2020 - Ago 2021',
-      description: 'Sistema SEPSI de privacidade e segurança de dados. Backend Spring Boot com frontend Thymeleaf. Implementação de compliance e proteção de dados.',
-      stack: 'Java, Spring Boot, PostgreSQL, Docker'
+      title: 'Desenvolvedor Full Stack Sênior',
+      company: 'Freelance - Sistema Multi-Tenant SaaS Healthcare',
+      period: 'Ago 2024 - Presente',
+      description: 'Arquitetei solução fullstack Node.js/React para múltiplas empresas com MongoDB e PostgreSQL. Implementei isolamento completo entre tenants com 100% de segurança. Sistema de autenticação JWT com contexto de empresa e rate limiting por role.',
+      stack: 'Node.js, React, TypeScript, PostgreSQL, MongoDB, Redis, RabbitMQ, Prisma ORM, Azure, Docker'
     },
     {
-      title: 'Frontend Developer',
-      company: 'INCA - Instituto Nacional de Câncer',
-      period: 'Ago - 2021 - Fev - 2023',
-      description: 'Desenvolvimento de interfaces Vue.js/Angular para laboratório oncológico nacional. Integração REST/SOAP APIs com sistemas Oracle legados. Processamento e visualização de dados clínicos críticos.',
-      stack: 'Vue.js, Angular, .NET, Oracle SQL'
+      title: 'Desenvolvedor Full Stack',
+      company: 'SONDA - Projeto SEPSI (BID)',
+      period: 'Fev 2023 - Ago 2024',
+      description: 'Desenvolvi microserviços em Node.js/Java integrando com MongoDB e PostgreSQL para 50.000+ usuários. Configurei RabbitMQ para mensageria entre 12 microserviços. Utilizei Redis para cache distribuído, melhorando response time em 30%.',
+      stack: 'Node.js, React, MongoDB, PostgreSQL, Redis, RabbitMQ, Docker, Kubernetes'
     },
     {
-      title: 'Frontend Developer',
-      company: 'E-hive Educational Platform',
-      period: 'Fev - 2023 - Presente',
-      description: 'Arquitetura monorepo com Nx Workspace e micro-frontends. Criação de 4 bibliotecas reutilizáveis (Design System, LMS Components, API Utils). Sistema multi-tenant com temas dinâmicos via CSS tokens.',
-      stack: 'React 19, TypeScript, Styled Components, Jest'
+      title: 'Desenvolvedor Backend',
+      company: 'SONDA - Petrobras (Sistemas Críticos SOX)',
+      period: 'Nov 2021 - Fev 2023',
+      description: 'Desenvolvi APIs RESTful em Java/Node.js integradas com Oracle Database. Implementei testes unitários com 80% cobertura. Otimizei queries Oracle processando 500K+ transações diárias.',
+      stack: 'Node.js, Java, Oracle 12c, REST APIs, Jest, JUnit, Docker'
     },
     {
-      title: 'Frontend Developer',
-      company: 'Fênix Educação',
-      period: 'Fev - 2023 - Presente',
-      description: 'Plataforma de cursos com performance otimizada (Core Web Vitals). SEO avançado com Next.js 14 SSR/SSG. Sistema de busca com filtros dinâmicos e checkout integrado.',
-      stack: 'Next.js 14, React 18, TypeScript, TailwindCSS'
+      title: 'Desenvolvedor de Integração',
+      company: 'SONDA - Caixa Econômica Federal (via SAS)',
+      period: 'Out 2020 - Nov 2021',
+      description: 'Automatizei pipelines de dados reduzindo processamento manual em 50%. Implementei modelos de risco processando R$ 5M+ em transações diárias. Reduzi tempo de relatórios regulatórios em 35%.',
+      stack: 'Python, SAS, SQL Server, Power BI, ETL, Pandas, NumPy'
     },
+  ]
+
+  const projects = [
+    {
+      title: 'Plataforma EAD - Fênix Educação',
+      description: 'Plataforma com SEO otimizado (Lighthouse 90+), aumentando tráfego orgânico em 80%.',
+      stack: 'Next.js, TypeScript, TailwindCSS'
+    },
+    {
+      title: 'Sistema de Detecção de EPIs',
+      description: 'IA para segurança do trabalho com 85% de acurácia, reduzindo incidentes em 30%.',
+      stack: 'Python, YOLO, Computer Vision'
+    }
   ]
 
   const companies = [
     { name: 'Petrobras', logo: 'https://github.com/RLuparelli/lprodrigoluparelli/blob/main/img/petrobras.png?raw=true' },
     { name: 'INCA', logo: 'https://github.com/RLuparelli/lprodrigoluparelli/blob/main/img/inca.png?raw=true' },
-    { name: 'Global', logo: 'https://github.com/RLuparelli/lprodrigoluparelli/blob/main/img/global.png?raw=true' },
-    { name: 'Claro', logo: 'https://github.com/RLuparelli/lprodrigoluparelli/blob/main/img/claro.png?raw=true' },
+    { name: 'Caixa', logo: 'https://github.com/RLuparelli/lprodrigoluparelli/blob/main/img/caixa.png?raw=true' },
+    { name: 'BID', logo: 'https://github.com/RLuparelli/lprodrigoluparelli/blob/main/img/bid.png?raw=true' },
     { name: 'Sonda', logo: 'https://github.com/RLuparelli/lprodrigoluparelli/blob/main/img/sonda.png?raw=true' },
-    { name: 'LBV', logo: 'https://github.com/RLuparelli/lprodrigoluparelli/blob/main/img/lbv.png?raw=true' },
     { name: 'SAS', logo: 'https://github.com/RLuparelli/lprodrigoluparelli/blob/main/img/sas.png?raw=true' },
   ]
 
@@ -71,7 +83,7 @@ const Experience = () => {
   }
 
   return (
-    <section id="experience" className="py-20 bg-gray-900">
+    <section id="experience" className="bg-gray-900 py-20">
       <div className="container-custom">
         <motion.div
           ref={ref}
@@ -79,10 +91,10 @@ const Experience = () => {
           animate={inView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.8 }}
         >
-          <h2 className="section-title">Experiência</h2>
+          <h2 className="section-title">Experiência Profissional</h2>
           
           {/* Timeline */}
-          <div className="max-w-4xl mx-auto mb-16">
+          <div className="mx-auto mb-16 max-w-4xl">
             <motion.div
               variants={timelineVariants}
               initial="hidden"
@@ -90,7 +102,7 @@ const Experience = () => {
               className="relative"
             >
               {/* Timeline Line */}
-              <div className="absolute left-1/2 transform -translate-x-1/2 h-full w-0.5 bg-gray-600 hidden md:block" />
+              <div className="hidden md:block left-1/2 absolute bg-gradient-to-b from-blue-500 to-purple-500 w-0.5 h-full -translate-x-1/2 transform" />
               
               {experiences.map((exp, index) => (
                 <motion.div
@@ -101,40 +113,40 @@ const Experience = () => {
                   }`}
                 >
                   {/* Timeline Dot */}
-                  <div className="absolute left-1/2 transform -translate-x-1/2 w-4 h-4 bg-white rounded-full border-4 border-gray-900 hidden md:block" />
+                  <div className="hidden md:block left-1/2 z-10 absolute bg-white border-4 border-blue-500 rounded-full w-4 h-4 -translate-x-1/2 transform" />
                   
                   <motion.div
                     whileHover={{ 
                       scale: 1.03, 
                       y: -5,
-                      boxShadow: "0 15px 30px rgba(0, 0, 0, 0.2)"
+                      boxShadow: "0 20px 40px rgba(59, 130, 246, 0.15)"
                     }}
                     transition={{ 
                       type: "spring", 
                       stiffness: 300, 
                       damping: 20 
                     }}
-                    className="bg-black/90 backdrop-blur-sm border border-gray-700 rounded-xl p-6 hover:border-gray-500 transition-all duration-300 group"
+                    className="group bg-black/90 backdrop-blur-sm p-6 border border-gray-700 hover:border-blue-500/50 rounded-xl transition-all duration-300"
                   >
-                    <div className="flex justify-between items-start mb-3">
-                      <h3 className="text-xl font-semibold text-white group-hover:text-gradient transition-all duration-300">
+                    <div className="flex md:flex-row flex-col justify-between items-start mb-3">
+                      <h3 className="font-semibold text-white group-hover:text-blue-400 text-xl transition-all duration-300">
                         {exp.title}
                       </h3>
-                      <span className="text-sm text-gray-400 bg-gray-800 px-3 py-1 rounded-full">
+                      <span className="bg-gray-800 mt-2 md:mt-0 px-3 py-1 rounded-full text-gray-400 text-sm">
                         {exp.period}
                       </span>
                     </div>
-                    <h4 className="text-lg font-medium text-blue-400 mb-4">
+                    <h4 className="mb-4 font-medium text-blue-400 text-lg">
                       {exp.company}
                     </h4>
-                    <p className="text-gray-300 leading-relaxed mb-4 text-sm">
+                    <p className="mb-4 text-gray-300 text-sm leading-relaxed">
                       {exp.description}
                     </p>
                     <div className="flex flex-wrap gap-2">
                       {exp.stack.split(', ').map((tech, techIndex) => (
                         <span
                           key={techIndex}
-                          className="bg-gray-800 text-gray-300 px-2 py-1 rounded text-xs font-medium group-hover:bg-gray-700 transition-colors duration-300"
+                          className="bg-gray-800 group-hover:bg-gray-700 px-2 py-1 rounded font-medium text-gray-300 group-hover:text-blue-300 text-xs transition-all duration-300"
                         >
                           {tech}
                         </span>
@@ -146,14 +158,49 @@ const Experience = () => {
             </motion.div>
           </div>
 
+          {/* Projects Section */}
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            animate={inView ? { opacity: 1, y: 0 } : {}}
+            transition={{ delay: 0.4, duration: 0.8 }}
+            className="mb-16"
+          >
+            <h3 className="mb-8 font-semibold text-white text-2xl text-center">
+              Projetos Destacados
+            </h3>
+            <div className="gap-6 grid md:grid-cols-2 mx-auto max-w-4xl">
+              {projects.map((project, index) => (
+                <motion.div
+                  key={index}
+                  whileHover={{ scale: 1.05, y: -5 }}
+                  transition={{ type: "spring", stiffness: 300, damping: 20 }}
+                  className="bg-black/90 backdrop-blur-sm p-6 border border-gray-700 hover:border-purple-500/50 rounded-xl transition-all duration-300"
+                >
+                  <h4 className="mb-2 font-semibold text-white text-lg">{project.title}</h4>
+                  <p className="mb-4 text-gray-300 text-sm">{project.description}</p>
+                  <div className="flex flex-wrap gap-2">
+                    {project.stack.split(', ').map((tech, techIndex) => (
+                      <span
+                        key={techIndex}
+                        className="bg-purple-900/30 px-2 py-1 rounded font-medium text-purple-300 text-xs"
+                      >
+                        {tech}
+                      </span>
+                    ))}
+                  </div>
+                </motion.div>
+              ))}
+            </div>
+          </motion.div>
+
           {/* Companies Carousel */}
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={inView ? { opacity: 1, y: 0 } : {}}
             transition={{ delay: 0.6, duration: 0.8 }}
           >
-            <h3 className="text-2xl font-semibold text-center text-white mb-8">
-              Empresas que já trabalhei
+            <h3 className="mb-8 font-semibold text-white text-2xl text-center">
+              Empresas e Instituições
             </h3>
             <CompanyCarousel companies={companies} />
           </motion.div>
